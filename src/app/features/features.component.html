@@ -1,9 +1,9 @@
-<div class="container mx-auto px-4 mt-12">
+<div class="container px-4 mt-12 max-w-screen">
     <div class="flex flex-col w-full">
         <div class="flex flex-col mb-8 text-center items-center justify-center">
             <h2 class="text-5xl font-bold mb-4 text-[#4891ce]"><span class="text-[#001B49]">Power </span>Features</h2>
             <hr class="border-t-2 border-gray-300 mt-6 mb-8 w-12">
-            <p class="text-lg max-w-[800px] font-base leading-8">
+            <p class="text-lg max-w-[325px] md:max-w-[800px] font-base leading-8">
                 FedDataCheck is a collaborative platform. We regularly build in the data quality insights from federal
                 contracting experts, such as flagging awards that used a socioeconomic set-aside while referencing a
                 GWAC, and we regularly add requested enhancements such as Service Contract Inventory reporting.
@@ -78,13 +78,13 @@
     <div class="flex flex-col mt-24 mb-8 text-center items-center justify-center">
         <h2 class="text-5xl font-bold mb-4 text-[#4891ce]"><span class="text-[#001B49]">Our </span>Subscribers</h2>
         <hr class="border-t-2 border-gray-300 mt-6 mb-8 w-12">
-        <p class="text-lg max-w-[800px] font-base leading-8 mb-8">
+        <p class="text-lg max-w-[325px] md:max-w-[800px] font-base leading-8 mb-8">
             FedDataCheck is a collaborative platform. We regularly build in the data quality insights from federal
             contracting experts, such as flagging awards that used a socioeconomic set-aside while referencing a
             GWAC, and we regularly add requested enhancements such as Service Contract Inventory reporting.
         </p>
         
-        <div class="w-full relative">
+        <div class="w-full relative overflow-hidden">
             <div class="carousel carousel-center rounded-box gap-12" #carousel>
                 <div class="carousel-item" *ngFor="let icon of subscriberIcons">
                     <img [src]="icon.src" [alt]="icon.alt" class="w-40 h-40 object-contain">
