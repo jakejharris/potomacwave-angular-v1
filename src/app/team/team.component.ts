@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-team',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './team.component.scss'
 })
 export class TeamComponent {
-
+  @HostBinding('class') hostClass = 'w-full';
 }

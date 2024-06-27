@@ -1,0 +1,14 @@
+.testimonials-swiper {
+    padding-bottom: 50px;
+}
+
+:host ::ng-deep {
+    .swiper-pagination-bullet-active {
+        background-color: #4891ce;
+    }
+
+    .testimonials-swiper-button-next,
+    .testimonials-swiper-button-prev {
+        color: #4891ce;
+    }
+}

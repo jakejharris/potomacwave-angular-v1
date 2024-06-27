@@ -1,3 +1,20 @@
-.container{
-    max-width:100dvw;
+.container {
+    max-width: 100dvw;
+}
+
+:host ::ng-deep {
+    .swiper {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .swiper-slide {
+        width: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #001B49;
+    }
 }

@@ -29,10 +29,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/swiper/",
+                "output": "/swiper/"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/swiper/swiper-bundle.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -96,7 +102,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/swiper/swiper-bundle.min.css"
             ],
             "scripts": []
           }

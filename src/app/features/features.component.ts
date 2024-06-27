@@ -1,5 +1,8 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import Swiper from 'swiper';
+import { Navigation, Autoplay } from 'swiper/modules';
+import { ConnectButtonComponent } from '../shared/connect-button/connect-button.component';
 
 interface SubscriberIcon {
   src: string;
@@ -9,67 +12,52 @@ interface SubscriberIcon {
 @Component({
   selector: 'app-features',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ConnectButtonComponent],
   templateUrl: './features.component.html',
-  styleUrl: './features.component.scss'
+  styleUrls: ['./features.component.scss']
 })
-export class FeaturesComponent implements AfterViewInit {
-  @ViewChild('carousel') carouselElement?: ElementRef;
-
+export class FeaturesComponent implements OnInit, AfterViewInit {
   subscriberIcons: SubscriberIcon[] = Array.from({length: 10}, (_, i) => ({
     src: `/images/icon${i + 1}.png`,
     alt: `Subscriber Icon ${i + 1}`
   }));
 
-  ngAfterViewInit() {
-    if (this.carouselElement) {
-      this.setupDraggableCarousel();
-    }
+  private swiper: Swiper | null = null;
+
+  ngOnInit() {
+    // Any initialization logic if needed
   }
 
-  setupDraggableCarousel() {
-    if (!this.carouselElement) return;
+  ngAfterViewInit() {
+    this.initSwiper();
+  }
 
-    const carousel = this.carouselElement.nativeElement;
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-
-    carousel.addEventListener('mousedown', (e: MouseEvent) => {
-      isDown = true;
-      carousel.classList.add('active');
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-      carousel.classList.remove('active');
-    });
-
-    carousel.addEventListener('mouseup', () => {
-      isDown = false;
-      carousel.classList.remove('active');
-    });
-
-    carousel.addEventListener('mousemove', (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 2;
-      carousel.scrollLeft = scrollLeft - walk;
+  private initSwiper() {
+    this.swiper = new Swiper('.swiper-features', {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.features-swiper-button-next',
+        prevEl: '.features-swiper-button-prev',
+      },
     });
   }
 
   prevSlide() {
-    if (this.carouselElement) {
-      this.carouselElement.nativeElement.scrollBy({ left: -200, behavior: 'smooth' });
+    if (this.swiper) {
+      this.swiper.slidePrev();
     }
   }
 
   nextSlide() {
-    if (this.carouselElement) {
-      this.carouselElement.nativeElement.scrollBy({ left: 200, behavior: 'smooth' });
+    if (this.swiper) {
+      this.swiper.slideNext();
     }
   }
 }
