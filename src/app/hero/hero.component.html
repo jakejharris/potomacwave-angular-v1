@@ -43,7 +43,7 @@
                     <span class="text-gray-200 font-medium text-shadow-sm">Collaboration with thousands of federal procurement officials</span>
                 </li>
             </ul>
-            <app-connect-button></app-connect-button>
+            <app-connect-button (clicked)="onConnectClicked()"></app-connect-button>
         </div>
 
         <!-- Right Column -->
@@ -110,7 +110,7 @@
                     <span class="text-lg">Transactions involving higher risk and debarred vendors under automated and close watch</span>
                 </li>
             </ul>
-            <app-connect-button additionalClasses="mt-6"></app-connect-button>
+            <app-connect-button (clicked)="onConnectClicked()" additionalClasses="mt-6"></app-connect-button>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, ElementRef, HostBinding, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, ElementRef, HostBinding, ViewChild, PLATFORM_ID, Inject, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ConnectButtonComponent } from "../shared/connect-button/connect-button.component";
 
@@ -13,6 +13,12 @@ import { ConnectButtonComponent } from "../shared/connect-button/connect-button.
 export class HowitdoneComponent {
   @HostBinding('class') hostClass = 'w-full';
   @ViewChild('carousel') carouselElement!: ElementRef;
+  @Output() connectClicked = new EventEmitter<void>();
+
+  onConnectClicked() {
+    this.connectClicked.emit();
+  }
+
   slides = [
     { image: 'images/chart1.png', alt: 'Chart 1' },
     { image: 'images/chart2.png', alt: 'Chart 2' },

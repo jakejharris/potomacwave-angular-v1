@@ -37,7 +37,7 @@
             Automated reports and alerts targeted and tailored towards a CO's own data input
           </div>
         </div>
-        <app-connect-button additionalClasses="mt-6"></app-connect-button>
+        <app-connect-button (clicked)="onConnectClicked()" additionalClasses="mt-6"></app-connect-button>
       </div>
       <div class="lg:w-1/3">
         <div class="carousel w-full" #carousel>
@@ -64,7 +64,7 @@
 </div>
 
 <!-- Contractor Responsibility Assessment Reporting section -->
-<div class="bg-[#001b49] text-white">
+<div id="cra" class="bg-[#001b49] text-white">
   <div class="container mx-auto px-4 py-16">
     <div class="flex flex-col lg:flex-row items-center mb-12">
       <div class="lg:w-1/2 mb-4 lg:mb-0">
@@ -123,7 +123,7 @@
           Simply send an email and you'll receive the information you need within minutes. Contact us to see
           how utilizing RPA can impact your day!
         </p>
-        <app-connect-button></app-connect-button>
+        <app-connect-button (clicked)="onConnectClicked()"></app-connect-button>
       </div>
     </div>
   </div>

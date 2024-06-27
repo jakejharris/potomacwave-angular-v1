@@ -1,11 +1,33 @@
 <app-header />
 
 <main class="w-full flex justify-center items-center flex-col">
-  <app-hero></app-hero>
-  <app-howitdone></app-howitdone>
-  <app-features></app-features>
-  <app-team></app-team>
-  <app-testimonials></app-testimonials>
+  <app-hero (connectClicked)="openModal()"></app-hero>
+  <app-howitdone (connectClicked)="openModal()"></app-howitdone>
+  <app-features id="features" (connectClicked)="openModal()"></app-features>
+  <app-team id="team"></app-team>
+  <app-testimonials id="testimonials"></app-testimonials>
 </main>
 
-<app-footer />
+<app-footer id="contact" />
+
+<!-- Modal -->
+<dialog id="connect_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">REQUEST MORE INFORMATION</h3>
+    <p class="py-4">Requesting more information regarding FedDataCheck and/or the Contractor Responsibility Assessment reporting.</p>
+    <div class="form-control">
+      <div class="input-group flex flex-row gap-2">
+        <input type="email" required placeholder="Enter your email" class="input input-bordered flex-grow" [(ngModel)]="email" />
+        <button class="btn btn-square" (click)="sendEmail()">
+          Send
+        </button>
+      </div>
+      <label class="label">
+        <span class="label-text-alt text-error">{{emailError}}</span>
+      </label>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>Close</button>
+  </form>
+</dialog>
