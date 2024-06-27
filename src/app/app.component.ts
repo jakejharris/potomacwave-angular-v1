@@ -6,7 +6,6 @@ import { HowitdoneComponent } from "./howitdone/howitdone.component";
 import { FeaturesComponent } from "./features/features.component";
 import { TeamComponent } from "./team/team.component";
 import { TestimonialsComponent } from "./testimonials/testimonials.component";
-import { ContactComponent } from "./contact/contact.component";
 import { FooterComponent } from "./footer/footer.component";
 
 @Component({
@@ -14,7 +13,7 @@ import { FooterComponent } from "./footer/footer.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, HeaderComponent, HeroComponent, HowitdoneComponent, FeaturesComponent, TeamComponent, TestimonialsComponent, ContactComponent, FooterComponent]
+    imports: [RouterOutlet, HeaderComponent, HeroComponent, HowitdoneComponent, FeaturesComponent, TeamComponent, TestimonialsComponent, FooterComponent]
 })
 export class AppComponent {
   title = 'potomacwave-angular-v1';

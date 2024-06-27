@@ -53,6 +53,18 @@ export class TestimonialsComponent implements OnInit, AfterViewInit {
     this.initSwiper();
   }
 
+  toggleIcon(event: Event) {
+    const checkbox = event.target as HTMLInputElement;
+    const svg = checkbox.nextElementSibling?.querySelector('svg');
+    if (svg) {
+      if (checkbox.checked) {
+        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />';
+      } else {
+        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />';
+      }
+    }
+  }
+
   private initSwiper() {
     new Swiper('.testimonials-swiper', {
       modules: [Navigation, Pagination],

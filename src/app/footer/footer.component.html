@@ -1,1 +1,80 @@
-<p>footer works!</p>
+<footer class="bg-base-200 py-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Contact Form -->
+            <div class="flex w-full md:w-3/4 flex-col">
+                <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium">Name</label>
+                        <input type="text" id="name" name="name" class="input input-bordered w-full" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium">Email</label>
+                        <input type="email" id="email" name="email" class="input input-bordered w-full" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium">Message</label>
+                        <textarea id="message" name="message" rows="4" class="textarea textarea-bordered min-h-24 max-h-96 w-full" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-md bg-[#3287cd] hover:bg-[#519edd] text-gray-100 rounded-sm">Contact Our Team</button>
+                </form>
+            </div>
+
+            <!-- Company Information -->
+            <div class="w-full md:w-1/4">
+                <h2 class="text-2xl font-bold mb-4">Company Information</h2>
+                <div class="space-y-0">
+                    <p class="font-bold mb-1">PotomacWave Consulting</p>
+                    <p class="font-medium p-0 m-0">FedDataCheck Division</p>
+                    <p class="font-medium p-0 m-0">4201 Wilson Boulevard</p>
+                    <p class="font-medium p-0 m-0">3rd Floor</p>
+                    <p class="font-medium p-0 m-0">Arlington, VA 22203</p>
+                </div>
+                <div class="mt-4 mb-4">
+                    <h3 class="text-lg font-semibold mb-1">FedDataCheck Support</h3>
+                    <p>Email: <a href="mailto:support@feddatacheck.net" class="link">support&#64;feddatacheck.net</a></p>
+                </div>
+                <a href="https://www.youtube.com/channel/UCKyEB0wj6wMFF7L8TKK1Fdg" target="_blank" class="btn btn-md bg-[#3287cd] hover:bg-[#519edd] text-gray-100 rounded-sm">Visit our YouTube channel</a>
+            </div>
+        </div>
+
+        <!-- Team Information -->
+        <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div>
+                <h3 class="font-bold">Brian Yost</h3>
+                <p>Service Delivery Manager</p>
+                <p>Email: <a href="mailto:byost@potomacwave.com" class="link">byost&#64;potomacwave.com</a></p>
+            </div>
+            <div>
+                <h3 class="font-bold">Keith Langley</h3>
+                <p>Business Intelligence Solutions</p>
+                <p>Email: <a href="mailto:klangley@potomacwave.com" class="link">klangley&#64;potomacwave.com</a></p>
+            </div>
+            <div>
+                <h3 class="font-bold">Bryan Ferrell</h3>
+                <p>AWS Manager</p>
+                <p>Email: <a href="mailto:bferrell@potomacwave.com" class="link">bferrell&#64;potomacwave.com</a></p>
+            </div>
+            <div>
+                <h3 class="font-bold">Pauline Autry</h3>
+                <p>Service Data Analyst</p>
+                <p>Email: <a href="mailto:pautry@potomacwave.com" class="link">pautry&#64;potomacwave.com</a></p>
+            </div>
+            <div>
+                <h3 class="font-bold">Ali Bousselot</h3>
+                <p>Applications Engineer</p>
+                <p>Email: <a href="mailto:abousselot@potomacwave.com" class="link">abousselot&#64;potomacwave.com</a></p>
+            </div>
+            <div>
+                <h3 class="font-bold">Alex Canfield</h3>
+                <p>Data Insight Generator</p>
+                <p>Email: <a href="mailto:acanfield@potomacwave.com" class="link">acanfield&#64;potomacwave.com</a></p>
+            </div>
+        </div>
+
+        <div class="mt-24 text-center">
+            <p class="text-sm">&copy; 2024 | FedDataCheck is a division of <a class="link" href="https://potomacwave.com/" target="_blank">PotomacWave</a></p>
+        </div>
+    </div>
+</footer>
