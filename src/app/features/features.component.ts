@@ -39,7 +39,7 @@ export class FeaturesComponent implements OnInit, AfterViewInit {
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 1500,
         disableOnInteraction: false,
       },
       navigation: {
