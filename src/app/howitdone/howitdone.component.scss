@@ -1,0 +1,82 @@
+.howitdone-container {
+    position: relative;
+    background-color: #f5f5f5;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+
+    .highlight {
+        color: #4891ce;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+
+        &:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4891ce;
+        }
+    }
+}
+
+.connect-button {
+    background-color: #4891ce;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.image-carousel {
+    flex: 1;
+    max-width: 500px;
+}
+
+.elementor-shape {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    direction: ltr;
+
+    &-top {
+        top: -1px;
+    }
+
+    &-bottom {
+        bottom: -1px;
+        transform: rotate(180deg);
+    }
+}
+
+.elementor-shape-fill {
+    fill: #ffffff;
+}

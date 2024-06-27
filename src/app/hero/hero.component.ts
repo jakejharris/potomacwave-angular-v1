@@ -1,9 +1,10 @@
 import { Component, HostBinding } from '@angular/core';
+import { ConnectButtonComponent } from '../shared/connect-button/connect-button.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
+  imports: [ConnectButtonComponent],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
