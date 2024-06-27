@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -45,12 +45,16 @@ export class TestimonialsComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
     // Any initialization logic if needed
   }
 
   ngAfterViewInit() {
-    this.initSwiper();
+    if (isPlatformBrowser(this.platformId)) {
+      this.initSwiper();
+    }
   }
 
   toggleIcon(event: Event) {
