@@ -10,8 +10,10 @@ import { TeamComponent } from "./team/team.component";
 import { TestimonialsComponent } from "./testimonials/testimonials.component";
 import { FooterComponent } from "./footer/footer.component";
 import { ConnectButtonComponent } from "./shared/connect-button/connect-button.component";
-import { DatabaseService } from './database.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { tap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -37,33 +39,23 @@ export class AppComponent {
   email: string = '';
   emailError: string = '';
 
-  constructor(private databaseService: DatabaseService) {}
+  constructor(private http: HttpClient) {}
+
+  callServerlessFunctionHello() {
+    this.http.get('http://localhost:3000/api/hello?name=Angular').pipe(
+      tap((response: any) => console.log(response.message)),
+      catchError((error) => {
+        console.error('Error calling serverless function:', error);
+        return of(null);
+      })
+    ).subscribe();
+  }
 
   openModal() {
     const modal = document.getElementById('connect_modal');
     if (modal) {
       (modal as any).showModal();
     }
-  }
-
-  sendEmail() {
-    if (!this.email) {
-      this.emailError = 'Email is required';
-      return;
-    }
-
-    this.databaseService.saveEmail(this.email).subscribe({
-      next: (response) => {
-        console.log('Email saved successfully', response);
-        this.email = '';
-        this.emailError = '';
-        alert('Your email has been recorded. Thank you for your interest!');
-      },
-      error: (error) => {
-        console.error('Error saving email:', error);
-        this.emailError = 'An error occurred while saving your email. Please try again.';
-      }
-    });
   }
 
   closeModal() {
@@ -75,5 +67,26 @@ export class AppComponent {
     if (modal) {
       (modal as any).close();
     }
+  }
+
+  sendEmail() {
+    if (!this.email) {
+      this.emailError = 'Email is required';
+      return;
+    }
+  
+    this.http.post(`${environment.apiUrl}/api/save-email`, { email: this.email }).pipe(
+      tap((response: any) => {
+        console.log('Email saved successfully', response);
+        this.email = '';
+        this.emailError = '';
+        alert('Your email has been recorded. Thank you for your interest!');
+      }),
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error saving email:', error);
+        this.emailError = 'An error occurred while saving your email. Please try again.';
+        return of(null);
+      })
+    ).subscribe();
   }
 }
